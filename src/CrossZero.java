@@ -42,13 +42,13 @@ public class CrossZero {
             }
         }
         if (fi.arr[0][0] == pl.sign && fi.arr[0][1] == pl.sign && fi.arr[0][2] == pl.sign ||
-                fi.arr[1][0] == pl.sign && fi.arr[1][1] == pl.sign && fi.arr[1][2] == pl.sign ||
-                fi.arr[2][0] == pl.sign && fi.arr[2][1] == pl.sign && fi.arr[2][2] == pl.sign ||
-                fi.arr[0][0] == pl.sign && fi.arr[1][0] == pl.sign && fi.arr[2][0] == pl.sign ||
-                fi.arr[1][0] == pl.sign && fi.arr[1][1] == pl.sign && fi.arr[2][1] == pl.sign ||
-                fi.arr[0][2] == pl.sign && fi.arr[1][2] == pl.sign && fi.arr[2][2] == pl.sign ||
-                fi.arr[0][0] == pl.sign && fi.arr[1][1] == pl.sign && fi.arr[2][2] == pl.sign ||
-                fi.arr[2][0] == pl.sign && fi.arr[1][1] == pl.sign && fi.arr[0][2] == pl.sign) {
+            fi.arr[1][0] == pl.sign && fi.arr[1][1] == pl.sign && fi.arr[1][2] == pl.sign ||
+            fi.arr[2][0] == pl.sign && fi.arr[2][1] == pl.sign && fi.arr[2][2] == pl.sign ||
+            fi.arr[0][0] == pl.sign && fi.arr[1][0] == pl.sign && fi.arr[2][0] == pl.sign ||
+            fi.arr[0][1] == pl.sign && fi.arr[1][1] == pl.sign && fi.arr[2][1] == pl.sign ||
+            fi.arr[0][2] == pl.sign && fi.arr[1][2] == pl.sign && fi.arr[2][2] == pl.sign ||
+            fi.arr[0][0] == pl.sign && fi.arr[1][1] == pl.sign && fi.arr[2][2] == pl.sign ||
+            fi.arr[2][0] == pl.sign && fi.arr[1][1] == pl.sign && fi.arr[0][2] == pl.sign) {
             fi.winState = true;
             System.out.printf("Победил игрок %s", pl.name);
         } else if (countX + countY == 9) {
