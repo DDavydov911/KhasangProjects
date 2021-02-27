@@ -7,25 +7,40 @@ public class SeaBattle {
         doGame();
     }
 
-    private static void createShips(char[] arr, int shipsNum) {
+    private static void createShips(char[] arr, int shipsLength) {
+        int x = shipsLength;
+        int startCell;
         do {
-            int startCell = (int) (Math.random() * (arr.length - 3));
-            if (arr[startCell] == '.' && arr[startCell + 1] == '.' && arr[startCell + 2] == '.') {
-                arr[startCell] = arr[startCell + 1] = arr[startCell + 2] = Integer.toString(shipsNum).charAt(0);
-                shipsNum--;
-            }
-        } while (shipsNum > 0);
+            do {
+                startCell = (int) (Math.random() * (arr.length - 2));
+            } while (isBusyPlace(arr, startCell));
+            arr[startCell] = arr[startCell + 1] = arr[startCell + 2] = Integer.toString(x).charAt(0);
+            x--;
+        } while (x > 0);
         System.out.println(arr);
     }
 
+    private static boolean isBusyPlace(char[] arr, int startCell) {
+        if (arr[startCell] != '.' || arr[startCell + 1] != '.' || arr[startCell + 2] != '.') {
+            return true;
+        }
+        if (startCell != arr.length - 3 && arr[startCell + 3] != '.') {
+            return true;
+        }
+        if (startCell != 0 && arr[startCell - 1] != '.') {
+            return true;
+        }
+        return false;
+    }
+
     private static void doGame() {
-        char[] field = new char[12];
+        char[] field = new char[17];
         for (int i = 0; i < field.length; i++) {
             field[i] = '.';
         }
         System.out.println(field);
         createShips(field, 3);
-        int sheap1Cells = 3;
+        int sheap1Length = 3;
         int sheap2Cells = 3;
         int sheap3Cells = 3;
         Scanner scanner = new Scanner(System.in);
@@ -39,9 +54,9 @@ public class SeaBattle {
                     field[shootCell] = '*';
                     break;
                 case '1':
-                    System.out.println((sheap1Cells == 1) ? "Корабль 1 потоплен" : "Попадание в корабль 1");
+                    System.out.println((sheap1Length == 1) ? "Корабль 1 потоплен" : "Попадание в корабль 1");
                     field[shootCell] = '#';
-                    sheap1Cells--;
+                    sheap1Length--;
                     break;
                 case '2':
                     System.out.println((sheap2Cells == 1) ? "Корабль 2 потоплен" : "Попадание в корабль 2");
@@ -57,6 +72,6 @@ public class SeaBattle {
                     System.out.println("Уже стреляли");
                     break;
             }
-        } while (sheap1Cells > 0 || sheap2Cells > 0 || sheap3Cells > 0);
+        } while (sheap1Length > 0 || sheap2Cells > 0 || sheap3Cells > 0);
     }
 }
