@@ -41,8 +41,12 @@ public class SeaBattle {
         System.out.println(field);
         createShips(field, 3);
         int sheap1Length = 3;
-        int sheap2Cells = 3;
-        int sheap3Cells = 3;
+        int sheap2Length = 3;
+        int sheap3Length = 3;
+        getSoot(field, sheap1Length, sheap2Length, sheap3Length);
+    }
+
+    private static void getSoot(char[] field, int sheap1Length, int sheap2Length, int sheap3Length) {
         Scanner scanner = new Scanner(System.in);
         do {
             System.out.println(field);
@@ -59,19 +63,19 @@ public class SeaBattle {
                     sheap1Length--;
                     break;
                 case '2':
-                    System.out.println((sheap2Cells == 1) ? "Корабль 2 потоплен" : "Попадание в корабль 2");
+                    System.out.println((sheap2Length == 1) ? "Корабль 2 потоплен" : "Попадание в корабль 2");
                     field[shootCell] = '#';
-                    sheap2Cells--;
+                    sheap2Length--;
                     break;
                 case '3':
-                    System.out.println((sheap3Cells == 1) ? "Корабль 3 потоплен" : "Попадание в корабль 3");
+                    System.out.println((sheap3Length == 1) ? "Корабль 3 потоплен" : "Попадание в корабль 3");
                     field[shootCell] = '#';
-                    sheap3Cells--;
+                    sheap3Length--;
                     break;
                 case '*':
                     System.out.println("Уже стреляли");
                     break;
             }
-        } while (sheap1Length > 0 || sheap2Cells > 0 || sheap3Cells > 0);
+        } while (sheap1Length > 0 || sheap2Length > 0 || sheap3Length > 0);
     }
 }
