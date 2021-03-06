@@ -11,23 +11,17 @@ public class HorseRaces {
         tabun[3] = new Horse("Klyacha", "4");
         tabun[4] = new Horse("Kon' pedal'ny", "5");
         showHorses(tabun);
-        int horseChoosed;
-        chooseHorse();
         System.out.println("\nНа какую лошадь Вы делаете ставку?\n_");
         Scanner scanner = new Scanner(System.in);
-        horseChoosed = scanner.nextInt() - 1;
+        int horseChoosed = scanner.nextInt() - 1;
         int Distance = 300;
         System.out.printf("Дистанция забега %d метров", Distance);
-        int winNumber = 1;
-        int coutFinish = 0;
-        races(tabun, Distance, winNumber, coutFinish);
+
+        races(tabun, Distance);
         Horse youHorse = tabun[horseChoosed];
         sort(tabun);
         showPlaces(tabun);
         showYourHorse(youHorse);
-    }
-
-    private static void chooseHorse() {
     }
 
     private static void showHorses(Horse[] tabun) {
@@ -37,24 +31,26 @@ public class HorseRaces {
     }
 
     private static void showYourHorse(Horse youHorse) {
-        System.out.printf("%nВаша лошадь %s заняла место %d", youHorse.name, youHorse.winNumber);
+        System.out.printf("%nВаша лошадь %s заняла место %d", youHorse.name, youHorse.finishNumber);
     }
 
     private static void showPlaces(Horse[] tabun) {
         System.out.println();
         for (Horse horse : tabun) {
-            System.out.printf("Лошадь %s заняла %d место%n", horse.name, horse.winNumber);
+            System.out.printf("Лошадь %s заняла %d место%n", horse.name, horse.finishNumber);
         }
     }
 
-    private static void races(Horse[] tabun, int Distance, int winNumber, int coutFinish) {
-        while (coutFinish < 5) {
+    private static void races(Horse[] tabun, int Distance) {
+        int countFinish = 0;
+        int finishNumber = 1;
+        while (countFinish < tabun.length) {
             for (int i = 0; i < tabun.length; i++) {
                 tabun[i].run();
                 if (tabun[i].distance >= Distance && tabun[i].speed > 0) {
-                    tabun[i].winNumber = winNumber++;
+                    tabun[i].finishNumber = finishNumber++;
                     tabun[i].speed = 0;
-                    coutFinish++;
+                    countFinish++;
                     break;
                 }
             }
@@ -71,7 +67,7 @@ public class HorseRaces {
     private static void sort(Horse[] tabun) {
         for (int i = 0; i < tabun.length; i++) {
             for (int j = i + 1; j < tabun.length; j++) {
-                if (tabun[i].winNumber > tabun[j].winNumber) {
+                if (tabun[i].finishNumber > tabun[j].finishNumber) {
                     Horse temp = tabun[i];
                     tabun[i] = tabun[j];
                     tabun[j] = temp;

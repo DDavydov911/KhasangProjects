@@ -3,7 +3,7 @@ package horse_races;
 public class Horse {
     String name;
     String number;
-    int winNumber;
+    int finishNumber;
     int secRun;
     int speed;
     int distance;
