@@ -27,6 +27,8 @@ public class Main {
         cat1.eat(smallPlate);
         cat3.eat(smallPlate);
         cat3.drink(smallBowl);
+        smallBowl.getWater(cat1);
+        smallPlate.getFeed(cat3);
         catsHome.showHome();
     }
 

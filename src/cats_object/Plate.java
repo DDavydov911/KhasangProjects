@@ -11,16 +11,16 @@ public class Plate {
         int reminder = 0;
         if (feed > portion) {
             feed -= portion;
-            cat.consumedFeed += portion;
-            System.out.println("Тарелка покормила кошку на " + portion);
+            cat.consumedWater += portion;
+            System.out.printf("%nТарелка покормила кошку %s на %d%n", cat.name, portion);
         } else if (feed > 0) {
             reminder = feed;
-            cat.consumedFeed += reminder;
+            cat.consumedWater += reminder;
             feed -= reminder;
-            System.out.println("Тарелка покормила кошку на " + reminder);
+            System.out.printf("%nТарелка покормила кошку %s на %d%n", cat.name, reminder);
         }
         System.out.println("В тарелке осталось " + feed);
-        System.out.println("Кошка всего съела " + cat.consumedFeed);
+        System.out.println("Кошка всего съела " + cat.consumedWater);
     }
     int getPortion() {
         if (feed > portion) {

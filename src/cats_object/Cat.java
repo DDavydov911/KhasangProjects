@@ -6,7 +6,6 @@ public class Cat {
     Bowl bowl;
     int consumedWater;
     Plate plate;
-    int consumedFeed;
     Home catsHome;
 
 
@@ -16,6 +15,7 @@ public class Cat {
         this.plate = plate;
         this.catsHome = home;
         this.id = ++catsHome.countOfCats;
+        consumedWater = 0;
         System.out.printf("В доме появилась кошка %s, её id: %d%n%n", name, id);
     }
     void drink() {
@@ -31,10 +31,10 @@ public class Cat {
     void eat() {
         System.out.printf("Кошка(т) %s ест%n%n", name);
         plate.feed -= plate.portion;
-        consumedFeed += plate.portion;
+        consumedWater += plate.portion;
     }
     void eat(Plate newPlate) {
         System.out.printf("Кошка(т) %s ест%n%n", name);
-        consumedFeed += newPlate.getPortion();;
+        consumedWater += newPlate.getPortion();;
     }
 }
