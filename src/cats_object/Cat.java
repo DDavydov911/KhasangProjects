@@ -11,7 +11,8 @@ public class Cat {
         this.name = name;
         this.bowl = bowl;
         this.plate = plate;
-        this.id = ++home.countOfCats;
+        this.catsHome = home;
+        this.id = ++catsHome.countOfCats;
         System.out.printf("В доме появилась кошка %s, её id: %d%n%n", name, id);
     }
 
