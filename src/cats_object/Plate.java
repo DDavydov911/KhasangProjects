@@ -19,17 +19,17 @@ public class Plate {
             feed -= reminder;
             System.out.printf("%nТарелка покормила кошку %s на %d%n", cat.name, reminder);
         }
-        System.out.println("В тарелке осталось " + feed);
-        System.out.println("Кошка всего съела " + cat.consumedWater);
+        System.out.printf("В тарелке осталось %d%n", feed);
+        System.out.printf("Кошка всего съела %d%n", cat.consumedWater);
     }
     int getPortion() {
         if (feed > portion) {
             feed -= portion;
-            System.out.println("В тарелке осталось " + feed);
+            System.out.printf("В тарелке осталось %d%n", feed);
             return portion;
         } else if (feed > 0) {
             int remainder = feed;
-            System.out.println("Последняя порция " + remainder);
+            System.out.printf("Последняя порция %d%n", remainder);
             feed = 0;
             return remainder;
         } else {

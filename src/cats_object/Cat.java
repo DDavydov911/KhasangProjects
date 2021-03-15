@@ -25,7 +25,7 @@ public class Cat {
     }
 
     void drink(Bowl newBowl) {
-        System.out.printf("Кошка(т) %s пьет%n%n", name);
+        System.out.printf("Кошка(т) %s сама пьет именно из этой чашки%n%n", name);
         consumedWater += newBowl.getPortion();
     }
     void eat() {
@@ -34,7 +34,7 @@ public class Cat {
         consumedWater += plate.portion;
     }
     void eat(Plate newPlate) {
-        System.out.printf("Кошка(т) %s ест%n%n", name);
+        System.out.printf("Кошка(т) %s сама ест именно из этой тарелки%n%n", name);
         consumedWater += newPlate.getPortion();;
     }
 }
